@@ -4,7 +4,7 @@
  *
  * @copyright Copyright (C) 2012 Leiden Tech. All rights reserved.
  * @license http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
- * @version  0.9
+ * @version  0.9.1
  * @package optionmatrix
  */
 
@@ -255,14 +255,12 @@ class optionMatrixType extends eZDataType
 			$matrix->setName( $contentClassAttribute->attribute( 'data_text1' ) );
 			$matrix->setTypeValue( $contentClassAttribute->attribute( 'data_text2' ) );
 			$matrix->setRequiredValue( $contentClassAttribute->attribute( 'data_text3' ) );
+			$matrix->addRow( false, $contentClassAttribute->attribute( 'data_int1' ));
+			$matrix->adjustColumnsToDefinition( $contentClassAttribute->attribute( 'content' ) );
 		} else {
-				$matrix = $originalContentObjectAttribute->content();
-				$contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
-				// make sure that $matrix contains right columns
-				$matrix->adjustColumnsToDefinition( $contentClassAttribute->attribute( 'content' ) );
-
-				$contentObjectAttribute->setAttribute( 'data_text', $matrix->xmlString() );
-				$contentObjectAttribute->setContent( $matrix );
+			$matrix = $originalContentObjectAttribute->content();
+			$contentClassAttribute = $contentObjectAttribute->contentClassAttribute();
+			$matrix->adjustColumnsToDefinition( $contentClassAttribute->attribute( 'content' ) );
 		}
 		$contentObjectAttribute->setAttribute( "data_text", $matrix->xmlString() );
 		$contentObjectAttribute->setContent( $matrix );
