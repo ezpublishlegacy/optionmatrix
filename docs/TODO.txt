@@ -1,0 +1,6 @@
+Default number of rows is busted.
+
+Should actually have a multi-value switch as a checkbox.
+
+Since I used this a input into a custom module, I never thought of using
+collected information.  This should be added.

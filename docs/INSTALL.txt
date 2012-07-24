@@ -1,0 +1,6 @@
+Add optionmatrix to the extensions directory and add ActiveExtensions[]=optionmatrix (or ActiveAccessExtensions)
+to your ExtensionSettings.
+
+Regenerate your autoloads.
+
+Install the optionmatrix_example_class-1.0-1.ezpkg to see an example of a class using the optionmatrix datatype.
